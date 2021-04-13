@@ -2,7 +2,7 @@
 {% macro bashrc(name) %}
 /etc/bash.bashrc.d/{{ name }}.sh:
   file.managed:
-    - source: salt://basic/bash/bash.bashrc.d/{{ name }}.sh
+    - source: salt://{{ tpldir }}/bash.bashrc.d/{{ name }}.sh
     - user: root
     - group: root
     - mode: 755
@@ -15,7 +15,7 @@ bash-completion:
 
 /etc/bash.bashrc:
   file.managed:
-    - source: salt://basic/bash/bashrc
+    - source: salt://{{ tpldir }}/bashrc
     - user: root
     - group: root
     - mode: 755
